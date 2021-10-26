@@ -14,5 +14,5 @@ architecture rt3 of norgate is
     signal nor_gate : std_logic;
   begin
     nor_gate <= input1 nor input2;
-    nor_result <= or_gate;
+    nor_result <= nor_gate;
   end rt3;
