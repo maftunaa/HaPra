@@ -15,6 +15,6 @@ architecture rt8 of orgate_delay is
     signal or_gate : std_logic;
   begin
     or_gate <= input1 or input2;
-    or_result <= transport or_gate after 15 ns;
+    or_result <= transport or_gate after 15 ns; -- Transport Delay 15 ns
   end rt8;
   
