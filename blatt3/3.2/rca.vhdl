@@ -2,12 +2,11 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
 ENTITY rca IS
-  PORT (
-    a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    cout : OUT STD_LOGIC;
-    sum : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-  );
+port( OP: in std_logic;
+A,B  : in std_logic_vector(3 downto 0);
+R  : out std_logic_vector(3 downto 0);
+Cout, OVERFLOW : out std_logic);
+
 END rca;
 
 ARCHITECTURE rtl OF rca IS
