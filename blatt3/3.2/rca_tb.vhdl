@@ -1,30 +1,36 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity rca_tb is
-end rca_tb;
+ENTITY rca_tb IS
+END rca_tb;
 
-architecture test of rca_tb is
-  component rca
-    port (
-      a : in std_logic_vector(7 downto 0);
-      b : in std_logic_vector(7 downto 0);
-      cout : out std_logic;
-      sum : out std_logic_vector(7 downto 0)
+ARCHITECTURE test OF rca_tb IS
+  COMPONENT rca
+    PORT (
+      a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      cout : OUT STD_LOGIC;
+      sum : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
-  end component;
+  END COMPONENT;
 
-signal a : std_logic_vector(7 downto 0);
-signal b : std_logic_vector(7 downto 0);
-signal cout : std_logic;
-signal sum : std_logic_vector(7 downto 0);
-begin
-  -- ?
+  SIGNAL a : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL b : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL cout : STD_LOGIC;
+  SIGNAL sum : STD_LOGIC_VECTOR(7 DOWNTO 0);
+BEGIN
+  g : rca port map(a, b, cout, sum);
 
-  process begin
-    a <= "1111";
-    b <= "1111";
-    wait for 1 ns;
-    wait;
-  end process;
-end test;
+  PROCESS BEGIN
+    a <= "10101010";
+    b <= "01010101";
+    WAIT FOR 1 ns;
+    a <= "11001100";
+    b <= "11110000";
+    WAIT FOR 1 ns;
+    a <= "11010111";
+    b <= "01011010";
+    WAIT FOR 1 ns;
+    WAIT;
+  END PROCESS;
+END test;
