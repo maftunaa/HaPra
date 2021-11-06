@@ -1,0 +1,39 @@
+$date
+  Sat Nov 06 02:26:50 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module mux41 $end
+$var reg 3 ! i1[2:0] $end
+$var reg 3 " i2[2:0] $end
+$var reg 3 # i3[2:0] $end
+$var reg 3 $ i4[2:0] $end
+$var reg 2 % sel[1:0] $end
+$var reg 3 & y[2:0] $end
+$var reg 2 ' not_sel[1:0] $end
+$scope module not_gate_assignment(0) $end
+$scope module not_output $end
+$upscope $end
+$upscope $end
+$scope module not_gate_assignment(1) $end
+$scope module not_output $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+bUUU !
+bUUU "
+bUUU #
+bUUU $
+bUU %
+b000 &
+bUU '
