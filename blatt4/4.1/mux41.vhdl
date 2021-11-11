@@ -15,8 +15,8 @@ ENTITY mux41 IS
 END mux41;
 
 ARCHITECTURE rtl OF mux41 IS
-    --you can add more components you need
-    --you can also increase the number of inputs, e.g., the "and" gate blow is extended to a 3-input gate.
+
+    -- andgate with 3 inputs
     COMPONENT andgate IS
     port (
         input1 : in std_logic;
@@ -25,6 +25,8 @@ ARCHITECTURE rtl OF mux41 IS
         and_result : out std_logic
       );
     END COMPONENT;
+
+    -- orgate with 4 inputs
     COMPONENT orgate IS
         PORT (
             input1 : IN STD_LOGIC;
@@ -34,32 +36,36 @@ ARCHITECTURE rtl OF mux41 IS
             or_result : OUT STD_LOGIC
         );
     END COMPONENT;
+
+    --notgate 
     COMPONENT notgate IS
         PORT (
             input1 : IN STD_LOGIC;
             not_result : OUT STD_LOGIC
         );
     END COMPONENT;
-    --you can define more signals here if you need, e.g.,:
+
+    --signals
     SIGNAL not_sel : STD_LOGIC_VECTOR(1 DOWNTO 0);
     SIGNAL and1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL and2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL and3 : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL and4 : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    signal out_or : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    signal out_or : STD_LOGIC_VECTOR(2 DOWNTO 0); --for output
 
 BEGIN
     --bitwise operation for each logic gate because the input signals are multilple-bit signals
-    --please complete the implementation based on the schema you designed.
     not_gate_assignment : FOR i IN 0 TO 1 GENERATE
         not_output1 : notgate port map(sel(i), not_sel(i));
     END GENERATE not_gate_assignment;
+    
     and_gate_assignment : FOR i IN 0 TO 2 GENERATE
         and_output1 : andgate PORT MAP(not_sel(0), not_sel(1), i1(i), and1(i));
         and_output2 : andgate PORT MAP(sel(0), not_sel(1), i2(i), and2(i));
         and_output3 : andgate PORT MAP(not_sel(0), sel(1), i3(i), and3(i));
         and_output4 : andgate PORT MAP(sel(0), sel(1), i4(i), and4(i));
     END GENERATE and_gate_assignment;
+    
     or_gate_assignment : FOR i IN 0 TO 2 GENERATE
         or_output1 : orgate PORT MAP(and1(i), and2(i), and3(i), and4(i), out_or(i));
     END GENERATE or_gate_assignment;
