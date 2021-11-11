@@ -15,6 +15,6 @@ ARCHITECTURE rt2 OF orgate IS
   -- interconnection signals, constants, or other components
   SIGNAL or_gate : STD_LOGIC;
 BEGIN
-  or_gate <= input1 OR input2 OR input3;
+  or_gate <= input1 OR input2 OR input3 or input4;
   or_result <= or_gate;
 END rt2;
