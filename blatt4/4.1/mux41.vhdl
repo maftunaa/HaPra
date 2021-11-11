@@ -17,7 +17,6 @@ END mux41;
 ARCHITECTURE rtl OF mux41 IS
     --you can add more components you need
     --you can also increase the number of inputs, e.g., the "and" gate blow is extended to a 3-input gate.
-
     COMPONENT andgate IS
         PORT (
             input1 : IN STD_LOGIC;
@@ -34,30 +33,22 @@ ARCHITECTURE rtl OF mux41 IS
             or_result : OUT STD_LOGIC
         );
     END COMPONENT;
-    COMPONENT notgate IS
-        PORT (
-            input1 : IN STD_LOGIC;
-            not_result : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
     --you can define more signals here if you need, e.g.,:
     SIGNAL not_sel : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL and1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL and2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL and3 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL and4 : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 BEGIN
-    --bitwise operation for each logic gate because the input signals are multilple-bit signals.
-    not_gate_assignment : FOR i IN 0 TO 1 GENERATE
-        not_output : notgate PORT MAP(sel(i));
-    END GENERATE not_gate_assignment;
-    
-
+    --bitwise operation for each logic gate because the input signals are multilple-bit signals
     --please complete the implementation based on the schema you designed.
-    -- and_gate_assignment : FOR i IN 0 TO 2 GENERATE
-    --     and_output1 : andgate PORT MAP();
-    --     and_output2 : andgate PORT MAP(--missing);
-    --     and_output3 : andgate PORT MAP(--missing);
-    --     and_output4 : andgate PORT MAP(--missing);
-    -- END GENERATE and_gate_assignment;
-
-    y <= "000";
+    -- TODO not_sel
+    and_gate_assignment : FOR i IN 0 TO 2 GENERATE
+        and_output1 : andgate PORT MAP(not_sel(0), not_sel(1), i1(i), and1(i));
+        and_output2 : andgate PORT MAP(not_sel(0), not_sel(1), i2(i), and2(i));
+        and_output3 : andgate PORT MAP(not_sel(0), not_sel(1), i3(i), and3(i));
+        and_output4 : andgate PORT MAP(not_sel(0), not_sel(1), i4(i), and4(i));
+    END GENERATE and_gate_assignment;
+    y <= and1 OR and2 OR and3 OR and4;
 END rtl;

@@ -1,35 +1,65 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity mux41_tb is
-end mux41_tb;
+ENTITY mux41_tb IS
+END mux41_tb;
 
-architecture testbench of mux41_tb is
-  component mux41
-    port (
---missing
-    );
-  end component;
+ARCHITECTURE testbench OF mux41_tb IS
+    COMPONENT mux41
+        PORT (
+            i1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            i2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            i3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            i4 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+            sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+            y : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+        );
+    END COMPONENT;
 
---missing
+    SIGNAL i1, i2, i3, i4, y : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL sel : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-begin
-    multiplex: mux41 port map(--missing);
+BEGIN
+    multiplex : mux41 PORT MAP(i1, i2, i3, i4,sel,y);
 
-    process begin
+    PROCESS BEGIN
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
         sel <= "00";
-        wait for 10 ns;
+        WAIT FOR 10 ns;
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
         sel <= "01";
-        wait for 10 ns;
+        WAIT FOR 10 ns;
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
         sel <= "10";
-        wait for 10 ns;
+        WAIT FOR 10 ns;
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
         sel <= "11";
-        wait for 10 ns;
-		sel <= "10";
-        wait for 10 ns;
-		sel <= "11";
-        wait for 10 ns;
-		
-        wait;
-    end process;
-end testbench;
+        WAIT FOR 10 ns;
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
+        sel <= "10";
+        WAIT FOR 10 ns;
+        i1 <= "000";
+        i2 <= "001";
+        i3 <= "010";
+        i4 <= "011";
+        sel <= "11";
+        WAIT FOR 10 ns;
+
+        WAIT;
+    END PROCESS;
+END testbench;
