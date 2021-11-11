@@ -17,6 +17,6 @@ architecture rtl of and2gate is
   -- interconnection signals, constants, or other components
   signal and_gate : std_logic;
 begin
-  and_gate <= input1 and input2 and input3;
+  and_gate <= input1 and input2;
   and_result <= and_gate;
 end rtl;
