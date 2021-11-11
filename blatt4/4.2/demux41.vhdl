@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY demux14 IS
+ENTITY demux41 IS
     PORT (
         y0 : IN std_logic_vector(2 DOWNTO 0); 
         sel : IN std_logic_vector(1 DOWNTO 0); 
@@ -10,9 +10,9 @@ ENTITY demux14 IS
         i2 : OUT std_logic_vector(2 DOWNTO 0);
         i3 : OUT std_logic_vector(2 DOWNTO 0)
         );
-END demux14;
+END demux41;
 
-ARCHITECTURE rtl OF demux14 IS
+ARCHITECTURE rtl OF demux41 IS
  -- andgate with 3 inputs
     COMPONENT andgate IS
     port (
