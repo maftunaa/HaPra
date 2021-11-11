@@ -1,13 +1,16 @@
 v 4
-file . "orgate.vhdl" "c79959b6dc3c4306058335612205865ee34bf9f6" "20211107000922.201":
-  entity orgate at 1( 0) + 0 on 67;
-  architecture rt2 of orgate at 14( 239) + 0 on 68;
-file . "mux41_tb.vhdl" "16f5cd91a1982b696dbb3b8678c637700935dcbc" "20211107001038.495":
-  entity mux41_tb at 1( 0) + 0 on 75;
-  architecture testbench of mux41_tb at 7( 84) + 0 on 76;
-file . "mux41.vhdl" "01c045ad52648fb049e210622d6cd62eda59a1f8" "20211107001620.925":
-  entity mux41 at 1( 0) + 0 on 83;
-  architecture rtl of mux41 at 17( 524) + 0 on 84;
-file . "andgate.vhdl" "51473d47679a0ebc597d58f903e1c7e8d1c0a05b" "20211107001305.081":
-  entity andgate at 5( 241) + 0 on 77;
-  architecture rtl of andgate at 20( 612) + 0 on 78;
+file . "notgate.vhdl" "f07640a51d105ae2726f6597f3b36792dfd084d1" "20211111165041.225":
+  entity notgate at 1( 0) + 0 on 109;
+  architecture rt7 of notgate at 11( 166) + 0 on 110;
+file . "orgate.vhdl" "c79959b6dc3c4306058335612205865ee34bf9f6" "20211111165042.760":
+  entity orgate at 1( 0) + 0 on 111;
+  architecture rt2 of orgate at 14( 239) + 0 on 112;
+file . "mux41_tb.vhdl" "dc3b1fb4c14be0125efb6f43e20ad90fc0eaa712" "20211111165046.693":
+  entity mux41_tb at 1( 0) + 0 on 115;
+  architecture testbench of mux41_tb at 7( 84) + 0 on 116;
+file . "mux41.vhdl" "5aea55c4ce46d1b495d2cf66320e3d401b143596" "20211111165044.356":
+  entity mux41 at 1( 0) + 0 on 113;
+  architecture rtl of mux41 at 17( 524) + 0 on 114;
+file . "andgate.vhdl" "51473d47679a0ebc597d58f903e1c7e8d1c0a05b" "20211111165039.190":
+  entity andgate at 5( 241) + 0 on 107;
+  architecture rtl of andgate at 20( 612) + 0 on 108;

@@ -47,19 +47,6 @@ BEGIN
         i4 <= "011";
         sel <= "11";
         WAIT FOR 10 ns;
-        i1 <= "000";
-        i2 <= "001";
-        i3 <= "010";
-        i4 <= "011";
-        sel <= "10";
-        WAIT FOR 10 ns;
-        i1 <= "000";
-        i2 <= "001";
-        i3 <= "010";
-        i4 <= "011";
-        sel <= "11";
-        WAIT FOR 10 ns;
-
         WAIT;
     END PROCESS;
 END testbench;
