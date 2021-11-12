@@ -46,8 +46,8 @@ ARCHITECTURE rtl OF demux41 IS
     
     and_gate_assignment : FOR i IN 0 TO 2 GENERATE
         and_output1 : andgate PORT MAP(not_sel(0), not_sel(1), y0(i), and1(i));
-        and_output2 : andgate PORT MAP(not_sel(0), sel(1), y0(i), and2(i));
-        and_output3 : andgate PORT MAP(sel(0), not_sel(1), y0(i), and3(i));
+        and_output2 : andgate PORT MAP(sel(0), not_sel(1), y0(i), and3(i));
+        and_output3 : andgate PORT MAP(not_sel(0), sel(1), y0(i), and2(i));
         and_output4 : andgate PORT MAP(sel(0), sel(1), y0(i), and4(i));
     END GENERATE and_gate_assignment;
     
