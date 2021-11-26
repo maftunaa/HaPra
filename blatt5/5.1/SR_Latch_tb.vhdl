@@ -20,16 +20,16 @@ BEGIN
     
     PROCESS BEGIN
         S <= '1';
-        R <= '0';
-        WAIT FOR 10 ns;
-        S <= '0';
         R <= '1';
         WAIT FOR 10 ns;
         S <= '0';
-        R <= '0';
+        R <= '1';
         WAIT FOR 10 ns;
         S <= '1';
-        R <= '1';
+        R <= '0';
+        WAIT FOR 10 ns;
+        S <= '0';
+        R <= '0';
         WAIT FOR 10 ns;
         WAIT;
     END PROCESS;
