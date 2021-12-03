@@ -1,0 +1,107 @@
+$date
+  Fri Dec 03 20:21:00 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module sipo $end
+$var reg 1 ! sin $end
+$var reg 1 " clk $end
+$var reg 1 # rst $end
+$var reg 9 $ sout[8:0] $end
+$var reg 9 % z[8:0] $end
+$scope module q1 $end
+$var reg 1 & clk $end
+$var reg 1 ' reset $end
+$var reg 1 ( d $end
+$var reg 1 ) q $end
+$upscope $end
+$scope module q2 $end
+$var reg 1 * clk $end
+$var reg 1 + reset $end
+$var reg 1 , d $end
+$var reg 1 - q $end
+$upscope $end
+$scope module q3 $end
+$var reg 1 . clk $end
+$var reg 1 / reset $end
+$var reg 1 0 d $end
+$var reg 1 1 q $end
+$upscope $end
+$scope module q4 $end
+$var reg 1 2 clk $end
+$var reg 1 3 reset $end
+$var reg 1 4 d $end
+$var reg 1 5 q $end
+$upscope $end
+$scope module q5 $end
+$var reg 1 6 clk $end
+$var reg 1 7 reset $end
+$var reg 1 8 d $end
+$var reg 1 9 q $end
+$upscope $end
+$scope module q6 $end
+$var reg 1 : clk $end
+$var reg 1 ; reset $end
+$var reg 1 < d $end
+$var reg 1 = q $end
+$upscope $end
+$scope module q7 $end
+$var reg 1 > clk $end
+$var reg 1 ? reset $end
+$var reg 1 @ d $end
+$var reg 1 A q $end
+$upscope $end
+$scope module q8 $end
+$var reg 1 B clk $end
+$var reg 1 C reset $end
+$var reg 1 D d $end
+$var reg 1 E q $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+U!
+U"
+U#
+bUUUUUUUUU $
+bUUUUUUUUU %
+U&
+U'
+U(
+U)
+U*
+U+
+U,
+U-
+U.
+U/
+U0
+U1
+U2
+U3
+U4
+U5
+U6
+U7
+U8
+U9
+U:
+U;
+U<
+U=
+U>
+U?
+U@
+UA
+UB
+UC
+UD
+UE
