@@ -13,9 +13,12 @@ entity parallel_mult is
 end parallel_mult;
 
 architecture rtl of parallel_mult is
-	signal --missing;
+	signal P1: std_logic_vector(3 downto 0);
+	signal P2: std_logic_vector(3 downto 0);
+	signal P3: std_logic_vector(3 downto 0);
+	signal P4: std_logic_vector(3 downto 0);
 	
-	component block_1
+	component and2
 	port (
     andgate_in_1: in std_logic;
     andgate_in_2: in std_logic;
@@ -23,14 +26,14 @@ architecture rtl of parallel_mult is
 	);
 	end component;
 	
-    component block_2
+    component fa
 	port (
     a,b,c,cin : in std_logic;
     cout,sum : out std_logic
 	);
 	end component;
     
-	component block_3 
+	component ha
 	port (
     a,b,c: in std_logic;
     cout,sum: out std_logic
@@ -38,18 +41,18 @@ architecture rtl of parallel_mult is
 	end component;
 	 
 begin
-	row_0_0 : block_? port map --missing;
-    row_0_1 : block_? port map --missing;
-    row_0_2 : block_? port map --missing;
-    row_0_3 : block_? port map --missing;
+	row_0_0 : and2 port map (x(0), y(0), P1(0));
+    row_0_1 : and2 port map (x(1), y(0), P1(1));
+    row_0_2 : and2 port map (x(2), y(0), P1(2));
+    row_0_3 : and2 port map (x(3), y(0), P1(3));
 	
-	row_1_0 : block_? port map --missing;
-	row_1_1 : block_? port map --missing;
-	row_1_2 : block_? port map --missing;
-	row_1_3 : block_? port map --missing;
+	row_1_0 : ha port map --missing;
+	row_1_1 : fa port map --missing;
+	row_1_2 : fa port map --missing;
+	row_1_3 : ha port map --missing;
 	
-	row_2_0 : block_? port map --missing;
-	row_2_1 : block_? port map --missing;
+	row_2_0 : ha port map --missing;
+	row_2_1 : fa port map --missing;
 	row_2_2 : block_? port map --missing;
 	row_2_3 : block_? port map --missing;
 	
@@ -72,15 +75,15 @@ end rtl;
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity block_1 is
+entity and2 is
   port (
     andgate_in_1: in std_logic;
     andgate_in_2: in std_logic;
     andgate_out: out std_logic
   );
-end block_1;
+end and2;
 
-architecture rtl of block_1 is
+architecture rtl of and2 is
 begin
 	andgate_out <= andgate_in_1 and andgate_in_2;
 end rtl;
@@ -89,14 +92,14 @@ end rtl;
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity block_2 is
+entity fa is
   port (
     a,b,c,cin : in std_logic;
     cout,sum : out std_logic
   );
-end block_2;
+end fa;
 
-architecture rtl of block_2 is
+architecture rtl of fa is
   signal d : std_logic;
 begin
 	d <= b and c;
@@ -108,14 +111,14 @@ end rtl;
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity block_3 is
+entity ha is
   port (
     a,b,c: in std_logic;
     cout,sum: out std_logic
   );
-end block_3;
+end ha;
 
-architecture rtl of block_3 is
+architecture rtl of ha is
 	signal d : std_logic;
 begin
 	d <= b and c;
