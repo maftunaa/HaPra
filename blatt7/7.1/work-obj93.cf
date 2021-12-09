@@ -1,10 +1,13 @@
 v 4
-file . "parallel_mult.vhdl" "349cbd835b3dc8b0c414404e45037ba60c23272e" "20211209002049.913":
-  entity parallel_mult at 1( 0) + 0 on 11;
-  architecture rtl of parallel_mult at 15( 408) + 0 on 12;
-  entity and2 at 75( 2618) + 0 on 13;
-  architecture rtl of and2 at 86( 2797) + 0 on 14;
-  entity fa at 92( 2904) + 0 on 15;
-  architecture rtl of fa at 102( 3043) + 0 on 16;
-  entity ha at 111( 3214) + 0 on 17;
-  architecture rtl of ha at 121( 3347) + 0 on 18;
+file . "parallel_mult_tb.vhdl" "98125807ffa068260ee9d3817623eb46836a0455" "20211209221711.978":
+  entity parallel_mult_tb at 1( 0) + 0 on 337;
+  architecture rtl of parallel_mult_tb at 7( 100) + 0 on 338;
+file . "parallel_mult.vhdl" "e182c4346aebe20c2ce5578049040965d9e3c3ad" "20211209221709.088":
+  entity parallel_mult at 1( 0) + 0 on 329;
+  architecture rtl of parallel_mult at 15( 408) + 0 on 330;
+  entity and2 at 79( 2817) + 0 on 331;
+  architecture rtl of and2 at 90( 2996) + 0 on 332;
+  entity fa at 96( 3103) + 0 on 333;
+  architecture rtl of fa at 106( 3242) + 0 on 334;
+  entity ha at 115( 3413) + 0 on 335;
+  architecture rtl of ha at 125( 3546) + 0 on 336;
