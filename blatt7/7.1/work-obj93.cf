@@ -1,0 +1,10 @@
+v 4
+file . "parallel_mult.vhdl" "349cbd835b3dc8b0c414404e45037ba60c23272e" "20211209002049.913":
+  entity parallel_mult at 1( 0) + 0 on 11;
+  architecture rtl of parallel_mult at 15( 408) + 0 on 12;
+  entity and2 at 75( 2618) + 0 on 13;
+  architecture rtl of and2 at 86( 2797) + 0 on 14;
+  entity fa at 92( 2904) + 0 on 15;
+  architecture rtl of fa at 102( 3043) + 0 on 16;
+  entity ha at 111( 3214) + 0 on 17;
+  architecture rtl of ha at 121( 3347) + 0 on 18;

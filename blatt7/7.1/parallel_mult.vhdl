@@ -13,10 +13,10 @@ entity parallel_mult is
 end parallel_mult;
 
 architecture rtl of parallel_mult is
-	signal P1: std_logic_vector(3 downto 0);
-	signal P2: std_logic_vector(3 downto 0);
-	signal P3: std_logic_vector(3 downto 0);
-	signal P4: std_logic_vector(3 downto 0);
+	signal A: std_logic_vector(3 downto 0);
+	signal C: std_logic_vector(7 downto 0);
+	signal S: std_logic_vector(7 downto 0);
+	signal U: std_logic_vector(3 downto 0);
 	
 	component and2
 	port (
@@ -41,34 +41,34 @@ architecture rtl of parallel_mult is
 	end component;
 	 
 begin
-	row_0_0 : and2 port map (x(0), y(0), P1(0));
-    row_0_1 : and2 port map (x(1), y(0), P1(1));
-    row_0_2 : and2 port map (x(2), y(0), P1(2));
-    row_0_3 : and2 port map (x(3), y(0), P1(3));
+	row_0_0 : and2 port map (andgate_in_1 => x(0), andgate_in_2 => y(0), andgate_out => S(0));
+    row_0_1 : and2 port map (andgate_in_1 => x(1), andgate_in_2 => y(0), andgate_out => A(1));
+    row_0_2 : and2 port map (andgate_in_1 => x(2), andgate_in_2 => y(0), andgate_out => A(2));
+    row_0_3 : and2 port map (andgate_in_1 => x(3), andgate_in_2 => y(0), andgate_out => A(3));
 	
-	row_1_0 : ha port map --missing;
-	row_1_1 : fa port map --missing;
-	row_1_2 : fa port map --missing;
-	row_1_3 : ha port map --missing;
+	row_1_0 : ha port map (a => x(0), b => A(1), c => y(1), cout => C(1), sum => S(1));
+	row_1_1 : fa port map (a => x(1), b => A(2), c => y(1), cin => C(1), cout => C(2), sum => S(2));
+	row_1_2 : fa port map (a => x(2), b => A(3), c => y(1), cin => C(2), cout => C(3), sum => S(3));
+	row_1_3 : ha port map (a => x(3), b => C(3), c => y(1), cout => C(4), sum => S(4));
 	
-	row_2_0 : ha port map --missing;
-	row_2_1 : fa port map --missing;
-	row_2_2 : block_? port map --missing;
-	row_2_3 : block_? port map --missing;
+	row_2_0 : ha port map (a => x(0), b => S(2), c => y(2), cout => C(2), sum => S(2));
+	row_2_1 : fa port map (a => x(1), b => S(3), c => y(2), cin => C(2), cout => C(3), sum => S(3));
+	row_2_2 : fa port map (a => x(2), b => S(4), c => y(2), cin => C(3), cout => U(0), sum => S(4));
+	row_2_3 : fa port map (a => x(3), b => C(4), c => y(2), cin => U(0), cout => C(5), sum => S(5));
 	
-	row_3_0 : block_? port map --missing; 
-	row_3_1 : block_? port map --missing;
-	row_3_2 : block_? port map --missing;
-	row_3_3 : block_? port map --missing;
+	row_3_0 : ha port map (a => x(0), b => S(3), c => y(3), cout => C(3), sum => S(3));
+	row_3_1 : fa port map (a => x(1), b => S(4), c => y(3), cin => C(3), cout => C(4), sum => S(4));
+	row_3_2 : fa port map (a => x(2), b => S(5), c => y(3), cin => C(4), cout => U(1), sum => S(5));
+	row_3_3 : fa port map (a => x(3), b => C(5), c => y(3), cin => U(1), cout => C(6), sum => S(6));
 	
-	z(0) <= --missing;
-	z(1) <= --missing;
-	z(2) <= --missing;
-	z(3) <= --missing;
-	z(4) <= --missing;
-	z(5) <= --missing;
-	z(6) <= --missing;
-	z(7) <= --missing;
+	z(0) <= S(0);
+	z(1) <= S(1);
+	z(2) <= S(2);
+	z(3) <= S(3);
+	z(4) <= S(4);
+	z(5) <= S(5);
+	z(6) <= S(6);
+	z(7) <= C(6);
 end rtl;
 
 --first block
