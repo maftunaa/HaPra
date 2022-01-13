@@ -1,0 +1,43 @@
+$date
+  Fri Dec 10 20:37:42 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module shift_add $end
+$var reg 1 ! reset $end
+$var reg 1 " clk $end
+$var reg 4 # b_in[3:0] $end
+$var reg 1 $ load_cmd $end
+$var reg 1 % shift_cmd $end
+$var reg 1 & add_cmd $end
+$var reg 4 ' add_out[3:0] $end
+$var reg 1 ( c_out $end
+$var reg 8 ) rc[7:0] $end
+$var reg 1 * lsb $end
+$var reg 4 + rb[3:0] $end
+$var reg 17 , temp_register[16:0] $end
+$var reg 1 - temp_add $end
+$upscope $end
+$enddefinitions $end
+#0
+U!
+U"
+bUUUU #
+U$
+U%
+U&
+bUUUU '
+U(
+bUUUUUUUU )
+U*
+bUUUU +
+bUUUUUUUUUUUUUUUUU ,
+U-
