@@ -1,7 +1,7 @@
 v 4
-file . "regfile.vhdl" "142ed9a3adf068c45db49d5d8801992819223516" "20220113101937.940":
-  entity regfile at 4( 177) + 0 on 31;
-  architecture behavior of regfile at 21( 590) + 0 on 32;
-file . "regfile_tb.vhdl" "6df42dc6e4b882d161b84bac56707f6dad31fc56" "20220113102524.299":
-  entity regfile_tb at 1( 0) + 0 on 39;
-  architecture behavior of regfile_tb at 11( 233) + 0 on 40;
+file . "regfile.vhdl" "142ed9a3adf068c45db49d5d8801992819223516" "20220113144735.681":
+  entity regfile at 4( 177) + 0 on 53;
+  architecture behavior of regfile at 21( 590) + 0 on 54;
+file . "regfile_tb.vhdl" "6de7626de66c3dd5b49a4b656fabade69f90e1d6" "20220113144737.850":
+  entity regfile_tb at 1( 0) + 0 on 55;
+  architecture testbench of regfile_tb at 11( 233) + 0 on 56;

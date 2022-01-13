@@ -1,0 +1,4 @@
+v 4
+file . "syncresff.vhdl" "c03335495866416899753f56d355ed1d55bcc604" "20220113144431.583":
+  entity syncresff at 4( 177) + 0 on 13;
+  architecture behavior of syncresff at 17( 421) + 0 on 14;
