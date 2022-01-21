@@ -5,7 +5,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity syncresff is
-  generic (w: integer);
+  generic (w: integer:= 8);
   port(
     clk: in std_logic;
     reset: in std_logic;

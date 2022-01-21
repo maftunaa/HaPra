@@ -13,8 +13,8 @@ ARCHITECTURE testbench OF syncresff_tb IS
         port(
             clk: in std_logic;
             reset: in std_logic;
-            d: in std_logic_vector(w-1 downto 0);
-            q: buffer std_logic_vector(w-1 downto 0)
+            d: in std_logic_vector(7 downto 0);
+            q: buffer std_logic_vector(7 downto 0)
         );
     END COMPONENT;
     
@@ -22,50 +22,31 @@ ARCHITECTURE testbench OF syncresff_tb IS
    --Inputs
    signal clk : std_logic := '0';
    signal reset : std_logic := '0';
-   signal d : std_logic_vector(31 downto 0) := (others => '0');
-
- 	--Outputs
-   signal q : std_logic_vector(31 downto 0);
+   signal d : std_logic_vector(7 downto 0);
+   signal q : std_logic_vector(7 downto 0);
 	
 	
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: pc PORT MAP (
+   uut: syncresff PORT MAP (
           clk => clk,
           reset => reset,
-          PC_in => PC_in,
-          PC_out => PC_out
+          d => d,
+          q => q
         );
 
    -- Clock process definitions
-   clk_process :process
-   begin
-		clk <= '1';
-		wait for 10 ns;
-		clk <= '0';
-		wait for 10 ns;
-
-        -- hold reset state for 100 ns.
-        wait for 100 ns;	
-        d <= (others => '0');
-        wait for 100 ns;
-        d <= q + 4;
-        wait for 10 ns;
-        
-        wait for 2 ns;
-        reset <= '1';
-        wait for 10 ns;
-        reset <= '0';
-        wait for 2 ns;
-        
-        d <= q + 4;
-        wait for 10 ns;
-        d <= q + 4;
-        wait for 10 ns;
-        d <= q + 4;
-
-        wait;
+  process begin
+    clk <= '0';
+    reset <='1';
+    d <= "00000001";
+    wait for 10 ns;
+    clk <= '1';
+    reset <='0';
+    d <= "00000001";
+    wait for 10 ns;
+    wait;
    end process;
  
 END testbench;
