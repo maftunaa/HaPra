@@ -23,9 +23,11 @@ begin
         a <= X"10000000";
         b <= X"00000001";
         wait for 10 ns;
+        assert y = X"10000001" report "error";
         a <= X"10001000";
         b <= X"00100001";
         wait for 10 ns;
+        assert y = X"10101001" report "error";
         wait;
     end process;
 
