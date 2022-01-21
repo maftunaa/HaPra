@@ -21,7 +21,7 @@ entity controller is
 end;
 
 architecture structure of controller is
-  component maindec
+  component maindecoder
     port(
       op: in std_logic_vector(5 downto 0);
       memtoreg: out std_logic;
@@ -35,7 +35,7 @@ architecture structure of controller is
     );
   end component;
 
-  component aludec
+  component aludecoder
     port(
       funct: in std_logic_vector(5 downto 0);
       aluop: in std_logic_vector(1 downto 0);
@@ -45,7 +45,7 @@ architecture structure of controller is
   signal aluop: std_logic_vector(1 downto 0);
   signal branch: std_logic;
 begin
-  md: maindec port map(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
-  ad: aludec port map(funct, aluop, alucontrol);
+  md: maindecoder port map(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);
+  ad: aludecoder port map(funct, aluop, alucontrol);
   pcsrc <= branch and zero;
 end;
