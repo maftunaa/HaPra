@@ -29,8 +29,6 @@ ARCHITECTURE testbench OF alu_tb IS
    signal ALU_Zero : std_logic;
    signal ALU_Result : std_logic_vector(31 downto 0);
    
-   constant clk_period : time := 10 ns;
-	signal clk: std_logic;
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -43,37 +41,28 @@ BEGIN
         );
 
    -- process definitions
-   clk_process :process
-   begin
-		clk <= '0';
-		wait for clk_period/2;
-		clk <= '1';
-		wait for clk_period/2;
+   process begin
 
-        -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      wait for clk_period*10;
 		ALU_Input_1<=X"00100001";
 		ALU_Input_2<=X"00000001";
 		ALU_Control_In<="000";		--test for AND
-		wait for clk_period*10;
+		wait for 10 ns;
 		ALU_Control_In<="001";			--test for OR	
-		wait for clk_period*10;
+		wait for 10 ns;
 		ALU_Control_In<="010";		--test for add
-		wait for clk_period*10;
+		wait for 10 ns;
 		ALU_Control_In<="110";		--test for substract
-		wait for clk_period*10;
+		wait for 10 ns;
 		ALU_Control_In<="111";		--test for set on less then
-		wait for clk_period*10;
+    wait for 10 ns;
 		ALU_Input_2<=X"00100010";  --test for set on less then (greater)
 		ALU_Control_In<="111";		
-		wait for clk_period*10;
-        ALU_Control_In<="101";    -- test for others
-        wait for clk_period*10;
+		wait for 10 ns;
+    ALU_Control_In<="101";    -- test for others
+    wait for 10 ns;
 		
-      wait;
-   end process;
+    wait;
+  end process;
 
 
 END testbench;
