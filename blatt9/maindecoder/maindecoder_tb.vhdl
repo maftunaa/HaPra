@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 ENTITY maindecoder_tb IS
 END maindecoder_tb;
 
-ARCHITECTURE behavior OF maindecoder_tb IS
+ARCHITECTURE testbench OF maindecoder_tb IS
 
 
     component maindecoder
@@ -21,8 +21,12 @@ ARCHITECTURE behavior OF maindecoder_tb IS
         );
     end component;
 
+    signal op : std_logic_vector(5 downto 0);
+    signal memtoreg, memwrite, branch ,alusrc, regdst, regwrite, jump : std_logic;
+    signal aluop: std_logic_vector(1 downto 0);
+
 begin
-    behavior: maindecoder port map(
+    uut: maindecoder port map(
         op => op,
         memtoreg => memtoreg,
         memwrite => memwrite,
@@ -30,4 +34,21 @@ begin
         regdst => regdst, regwrite => regwrite,
         jump => jump, aluop => aluop );
 
-end;
+    process begin
+        op <= "000000";
+        wait for 10 ns;
+        op <= "100011";
+        wait for 10 ns;
+        op <= "101011";
+        wait for 10 ns;
+        op <= "000100";
+        wait for 10 ns;
+        op <= "001000";
+        wait for 10 ns;
+        op <= "000010";
+        wait for 10 ns;
+        op <= "111111";
+        wait for 10 ns;
+        wait;
+        end process;
+end testbench;

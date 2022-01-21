@@ -4,7 +4,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity maindec is
+entity maindecoder is
   port(
     op: in std_logic_vector(5 downto 0);
     memtoreg: out std_logic;
@@ -18,7 +18,7 @@ entity maindec is
   );
 end;
 
-architecture behavior of maindec is
+architecture behavior of maindecoder is
   signal controls: std_logic_vector(8 downto 0);
 begin
   process(op) begin
