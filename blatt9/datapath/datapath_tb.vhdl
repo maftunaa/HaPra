@@ -109,6 +109,28 @@ begin
                 tempr_instr(18) <= '1';
                 instr <= tempr_instr;
                 --das Ergebniss befindet sich an instr[11:15], soll [00110] sein
+                wait for 10 ns;
+                clk <='1';
+                tempr_instr <= x"00000000";
+
+                --Aufgabe с
+                wait for 10 ns;
+                clk <= '0';
+                reset <= '0';
+                memtoreg <= '0';
+                jump <= '0';
+                pcsrc <= '1';
+                alusrc <= '0';
+                regdst <= '1';
+                regwrite <= '1';
+                alucontrol <= x"00000010";
+                readdata <= x"00000000";
+                --erste Zah ist 4
+                tempr_instr(8) <= '1';
+                --die zweite ist 2
+                tempr_instr(14) <= '1';
+                instr <= tempr_instr;
+                --das Ergebniss befindet sich an instr[6:10], soll [00110] sein
                 wait;
         end process;
 end behavior;
