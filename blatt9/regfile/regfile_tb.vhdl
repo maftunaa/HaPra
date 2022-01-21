@@ -1,5 +1,6 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -25,18 +26,11 @@ ARCHITECTURE testbench OF regfile_tb IS
         );
 	END COMPONENT;
 
-
-   --Inputs
 	signal clk : std_logic := '0';
-	signal Read_reg_1 : std_logic_vector(4 downto 0) := (others => '0');
-	signal Read_reg_2 : std_logic_vector(4 downto 0) := (others => '0');
-	signal Write_reg : std_logic_vector(4 downto 0) := (others => '0');
-	signal Write_data : std_logic_vector(31 downto 0) := (others => '0');
-	signal write_enable : std_logic := '0';
-
-   --Outputs
-	signal Read_data_1 : std_logic_vector(31 downto 0);
-	signal Read_data_2 : std_logic_vector(31 downto 0);
+	signal we3 : std_logic ;
+	signal a1, a2, a3 : std_logic_vector(4 downto 0);
+	signal wd3, rd1, rd2 : std_logic_vector(31 downto 0);
+	
 
 
 BEGIN
@@ -44,44 +38,38 @@ BEGIN
    -- Instantiate the Unit Under Test (UUT)
 	uut: regfile PORT MAP (
 					    clk => clk,
-					    we3 => write_enable,
-                        a1 => Read_reg_1,
-                        a2 => Read_reg_2,
-                        a3 => Write_reg,
-                        wd3 => Write_data,
-                        rd1 => Read_data_1,
-                        rd2 => Read_data_2
+					    we3 => we3,
+                        a1 => a1,
+                        a2 => a2,
+                        a3 => a3,
+                        wd3 => wd3,
+                        rd1 => rd1,
+                        rd2 => rd2
 				    );   
 
 
-   stimuli: process
-	begin
+   process begin
+	-- write a value into register one	
+		clk <= '0';
+		we3 <= '1';
+		a3 <= "00001";
+		wd3 <= X"00000002";
+		wait for 10 ns;
+		assert a3 = "010" report "error";
 		clk <= '1';
+		we3 <= '0';
+		a1 <= "00001";
 		wait for 10 ns;
 		clk <= '0';
+		we3 <= '1';
+		a3 <= "10001";
+		wd3 <= X"00000002";
 		wait for 10 ns;
-	-- write a value into register one	
-		write_enable <= '1';
-		Write_reg <= "00001";
-		Write_data <= X"00000002";
-
+		assert a3 = "010" report "error";
+		clk <= '1';
+		we3 <= '0';
+		a2 <= "10001";
 		wait for 10 ns;
-		write_enable <= '0';
-		Read_reg_1 <= "00001";
-		
-
-	-- try to write a value into register 0
-        wait for 10 ns;
-		write_enable <= '1';
-		Write_reg <= "00000";
-		Write_data <= X"10000000";
-
-		wait for 10 ns;
-		write_enable <= '0';
-		Read_reg_1 <= "00000";
-
-		wait for 10 ns;
-
 		wait;
 	end process;
 
