@@ -26,8 +26,9 @@ component datapath
         writedata: buffer std_logic_vector(31 downto 0)
     );
 end component;
-    --3 => 0011
-    --7 => 0111
+
+        signal tempr_instr: std_logic_vector(31 downto 0);
+
 begin
         behavior: datapath port map(
                 clk => clk, reset => reset,
@@ -40,11 +41,14 @@ begin
 
         clk_process :process
         begin
-
-                wait for 100 ns;
-
                 clk <= '0';
-                reset <= '1';
+                reset <='1';
+                tempr_instr <= x"00000000";
+                wait for 10 ns;
+                --Aufgabe a
+                --3 => 0011, wir setzen die 3
+                clk <= '0';
+                reset <= '0';
                 memtoreg <= '0';
                 alusrc <= '1';
                 jump <= '0';
@@ -53,10 +57,18 @@ begin
                 regwrite <= '1';
                 alucontrol <= x"00000001";
                 readdata <= x"00000003";
-                instr <= x"00000000";
+                tempr_instr(21) <= '1';
+                tempr_instr(22) <= '1';
 
-                wait for 100 ns;
+                instr <= tempr_instr;
 
+                wait for 10 ns;
+                clk <='1';
+                tempr_instr <= x"00000000";
+
+                wait for 10 ns;
+
+                --7 => 0111, wir setzen die 7
                 clk <= '0';
                 reset <= '0';
                 memtoreg <= '0';
@@ -64,9 +76,39 @@ begin
                 jump <= '0';
                 pcsrc <= '1';
                 regdst <= '0';
+                regwrite <= '1';
                 alucontrol <= x"00000001";
                 readdata <= x"00000007";
-                instr <= x"00000000";
+
+                tempr_instr(16) <= '1';
+                tempr_instr(17) <= '1';
+                tempr_instr(18) <= '1';
+
+                instr <= tempr_instr;
+
+                wait for 10 ns;
+                clk <='1';
+                tempr_instr <= x"00000000";
+
+                --Aufgabe b
+                wait for 10 ns;
+                clk <= '0';
+                reset <= '0';
+                memtoreg <= '0';
+                jump <= '0';
+                pcsrc <= '1';
+                alusrc <= '0';
+                regdst <= '1';
+                regwrite <= '1';
+
+                alucontrol <= x"00000000";
+                readdata <= x"00000000";
+                --erste Zah ist 2
+                tempr_instr(22) <= '1';
+                --die zweite ist 4
+                tempr_instr(18) <= '1';
+                instr <= tempr_instr;
+                --das Ergebniss befindet sich an instr[11:15], soll [00110] sein
                 wait;
         end process;
 end behavior;
