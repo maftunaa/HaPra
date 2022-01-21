@@ -4,7 +4,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity aludec is
+entity aludecoder is
   port(
     funct: in std_logic_vector(5 downto 0);
     aluop: in std_logic_vector(1 downto 0);
@@ -12,7 +12,7 @@ entity aludec is
   );
 end;
 
-architecture behavior of aludec is
+architecture behavior of aludecoder is
 begin
   process(funct, aluop) begin
     case aluop is
